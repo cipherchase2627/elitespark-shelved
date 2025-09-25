@@ -1,42 +1,48 @@
-import { Brain, Shield, Calendar, Trophy, Users, Zap } from "lucide-react";
+import { Brain, Shield, Calendar, AlertTriangle, Users, Zap, Eye, Bug } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const features = [
   {
     icon: Brain,
-    title: "AI Compatibility Engine",
-    description: "Advanced algorithms analyze career trajectories, values, and lifestyle preferences to find your perfect professional match.",
-    color: "text-purple-400"
+    title: "Mind Reading Algorithm",
+    description: "Advanced neural networks that analyze your browsing patterns, sleep schedule, and... other data. Privacy? What's that?",
+    color: "text-red-400",
+    status: "PROTOTYPE"
   },
   {
-    icon: Shield,
-    title: "Verified Professionals",
-    description: "LinkedIn integration ensures authentic profiles. Connect only with verified professionals in your industry and beyond.",
-    color: "text-blue-400"
+    icon: Eye,
+    title: "Always Watching",
+    description: "24/7 monitoring of user activity. We know when you're online, when you're not, and when you're thinking about someone...",
+    color: "text-purple-400",
+    status: "BETA"
   },
   {
     icon: Calendar,
-    title: "Smart Scheduling",
-    description: "Intelligent calendar integration finds optimal meeting times that work for both busy professional schedules.",
-    color: "text-green-400"
+    title: "Destiny Scheduler",
+    description: "Our AI predicts when you'll fall in love. Sometimes it's wrong. Sometimes it makes it happen anyway.",
+    color: "text-yellow-400",
+    status: "ERROR"
   },
   {
-    icon: Trophy,
-    title: "Achievement Matching",
-    description: "Connect with professionals who share similar career milestones, ambitions, and success metrics.",
-    color: "text-yellow-400"
+    icon: AlertTriangle,
+    title: "Red Flag Detector",
+    description: "Identifies potential red flags in matches. Warning: May create false positives. Or false negatives. We're not sure which is worse.",
+    color: "text-orange-400",
+    status: "UNSTABLE"
   },
   {
-    icon: Users,
-    title: "Industry Networks",
-    description: "Join exclusive groups based on your field, company tier, or professional interests for targeted networking.",
-    color: "text-pink-400"
+    icon: Bug,
+    title: "Glitch Matching",
+    description: "Sometimes the algorithm breaks and matches you with... interesting people. This feature may or may not be intentional.",
+    color: "text-green-400",
+    status: "???"
   },
   {
     icon: Zap,
-    title: "InstantConnect",
-    description: "Skip the small talk with conversation starters based on shared professional experiences and interests.",
-    color: "text-cyan-400"
+    title: "[CLASSIFIED]",
+    description: "This feature is currently under development. Do not ask about it. Do not mention it. It doesn't exist.",
+    color: "text-gray-400",
+    status: "REDACTED"
   }
 ];
 
@@ -46,11 +52,12 @@ export function FeaturesSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Innovation Meets
-            <span className="bg-gradient-primary bg-clip-text text-transparent"> Intimacy</span>
+            Experimental Features
+            <span className="bg-gradient-primary bg-clip-text text-transparent animate-glitch"> [UNSTABLE]</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Revolutionary features designed specifically for the modern professional's dating journey.
+            Warning: These features are in active development. Use at your own risk. 
+            <span className="text-destructive animate-pulse">Side effects may include: obsession, heartbreak, or worse.</span>
           </p>
         </div>
         
@@ -58,17 +65,34 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="p-8 bg-card/50 backdrop-blur-sm border-card/20 hover:shadow-card-custom transition-spring hover:scale-105 group"
+              className="p-8 bg-card/50 backdrop-blur-sm border-card/20 hover:shadow-creepy transition-spring hover:scale-105 group relative overflow-hidden"
             >
-              <div className={`w-12 h-12 rounded-lg bg-gradient-primary/10 flex items-center justify-center mb-6 group-hover:shadow-glow transition-smooth`}>
+              {/* Status Badge */}
+              <div className={`absolute top-4 right-4 px-2 py-1 text-xs rounded border ${
+                feature.status === 'ERROR' ? 'bg-destructive/20 text-destructive border-destructive/50 animate-pulse' :
+                feature.status === 'REDACTED' ? 'bg-muted/20 text-muted-foreground border-muted/50 animate-flicker' :
+                feature.status === '???' ? 'bg-primary/20 text-primary border-primary/50 animate-glitch' :
+                'bg-muted/20 text-muted-foreground border-muted/50'
+              }`}>
+                {feature.status}
+              </div>
+              
+              <div className={`w-12 h-12 rounded-lg bg-gradient-primary/10 flex items-center justify-center mb-6 group-hover:shadow-glow transition-smooth ${
+                feature.status === 'ERROR' ? 'animate-glitch' : 
+                feature.status === 'REDACTED' ? 'animate-flicker' : ''
+              }`}>
                 <feature.icon className={`w-6 h-6 ${feature.color}`} />
               </div>
               
-              <h3 className="text-xl font-semibold mb-4 text-foreground">
+              <h3 className={`text-xl font-semibold mb-4 text-foreground ${
+                feature.status === 'REDACTED' ? 'blur-sm' : ''
+              }`}>
                 {feature.title}
               </h3>
               
-              <p className="text-muted-foreground leading-relaxed">
+              <p className={`text-muted-foreground leading-relaxed ${
+                feature.status === 'REDACTED' ? 'blur-sm' : ''
+              }`}>
                 {feature.description}
               </p>
             </Card>

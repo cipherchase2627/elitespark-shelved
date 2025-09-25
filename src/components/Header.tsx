@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Heart, Menu } from "lucide-react";
+import { Heart, Menu, Skull } from "lucide-react";
 
 export function Header() {
   return (
@@ -8,37 +8,37 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <Heart className="w-5 h-5 text-primary-foreground" />
+            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center animate-pulse">
+              <Skull className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              EliteConnect
+            <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent animate-glitch">
+              LoveVirus
             </span>
           </div>
           
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-muted-foreground hover:text-foreground transition-smooth">
-              Features
+            <a href="#features" className="text-muted-foreground hover:text-destructive transition-smooth animate-flicker">
+              Experiments
             </a>
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition-smooth">
-              About
+            <a href="#about" className="text-muted-foreground hover:text-destructive transition-smooth">
+              [CLASSIFIED]
             </a>
-            <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-smooth">
-              Success Stories
+            <a href="#testimonials" className="text-muted-foreground hover:text-destructive transition-smooth animate-glitch">
+              Test Reports
             </a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-smooth">
-              Contact
+            <a href="#contact" className="text-muted-foreground hover:text-destructive transition-smooth line-through">
+              Help
             </a>
           </nav>
           
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              Sign In
+            <Button variant="ghost" size="sm" className="animate-flicker">
+              Log In?
             </Button>
-            <Button variant="premium" size="sm">
-              Join Beta
+            <Button variant="creepy" size="sm">
+              SUBMIT
             </Button>
           </div>
           

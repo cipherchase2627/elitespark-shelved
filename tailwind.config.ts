@@ -68,6 +68,7 @@ export default {
         "elegant": "var(--shadow-elegant)",
         "glow": "var(--shadow-glow)",
         "card-custom": "var(--shadow-card)",
+        "creepy": "var(--shadow-creepy)",
       },
       transitionTimingFunction: {
         "smooth": "var(--transition-smooth)",
@@ -103,6 +104,8 @@ export default {
         "slide-up": "slide-up 0.6s ease-out",
         "glow": "glow 2s ease-in-out infinite alternate",
         "float": "float 6s ease-in-out infinite",
+        "glitch": "glitch 3s ease-in-out infinite",
+        "flicker": "flicker 2s linear infinite",
       },
       keyframes: {
         "fade-in": {
@@ -120,6 +123,22 @@ export default {
         "float": {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-20px)" },
+        },
+        "glitch": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "10%": { transform: "translateX(-2px)" },
+          "20%": { transform: "translateX(2px)" },
+          "30%": { transform: "translateX(-2px)" },
+          "40%": { transform: "translateX(2px)" },
+          "50%": { transform: "translateX(-2px)" },
+          "60%": { transform: "translateX(2px)" },
+          "70%": { transform: "translateX(-2px)" },
+          "80%": { transform: "translateX(2px)" },
+          "90%": { transform: "translateX(-2px)" },
+        },
+        "flicker": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.3" },
         },
       },
     },
